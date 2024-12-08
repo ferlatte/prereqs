@@ -35,11 +35,10 @@ You can also put your prereqs into your README.md, as shown below, and use `./pr
 
 ## prereqs.conf
 
-An example prereqs.conf for a small go project:
+An example prereqs.conf for a small project:
 
-    has dep
+    has npm
     has pre-commit
-    has gometalinter
 
 `prereqs` only tests for a tools existence in the PATH (or as a shell function); it doesn't try to check versions. If you want that you should consider installing your tool as part of your project.
 

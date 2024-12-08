@@ -3,14 +3,21 @@ PRE-COMMIT := $(shell which pre-commit)
 # The test_runner needs this in order to find its shell libraries.
 export LIB_DIR := $(shell pwd)/lib
 
-all: .prereqs.stamp pre-commit test
+.PHONY: all
+all: .prereqs.make-step pre-commit test
 
+.PHONY: test
 test:
 	pushd tests > /dev/null && ./test_runner -s /bin/bash
 
+.PHONY: clean
+clean:
+	$(RM) -f .*.make-step
+
 # Shortcut to run pre-commit hooks over the entire repo.
+.PHONY: pre-commit
 pre-commit: .git/hooks/pre-commit
-	pre-commit run --all-files
+	$(PRE-COMMIT) run --all-files
 
 # Update the pre-commit hooks if the pre-commit binary is updated.
 .git/hooks/pre-commit: $(PRE-COMMIT)
@@ -18,11 +25,6 @@ pre-commit: .git/hooks/pre-commit
 
 # Re-check prereqs if the prereqs configuration is newer than the last time
 # we checked.
-.prereqs.stamp: README.md
+.prereqs.make-step: README.md bin/prereqs
 	bin/prereqs -r README.md
-	touch .prereqs.stamp
-
-clean:
-	rm -f .*.stamp
-
-.PHONY: all clean pre-commit
+	touch .$@
