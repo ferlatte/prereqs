@@ -122,10 +122,11 @@ prereqs_update() {
     pushd "$d" > /dev/null
     local prereqs_tmp="${PREREQS}.tmp"
     if curl -s -q -o "$prereqs_tmp" \
-            "https://raw.githubusercontent.com/trussworks/prereqs/${tag}/prereqs"
+            "https://raw.githubusercontent.com/ferlatte/prereqs/${tag}/prereqs"
     then
         echo "Got it"
         install -C "${prereqs_tmp}" "${PREREQS}"
+        rm "${prereqs_tmp}"
     else
         echo "Failed"
         return 1
@@ -180,4 +181,6 @@ main() {
 }
 
 # Execute main() if this is run in standalone mode (vs. from a unit test)
-[ -z "${SHUNIT_VERSION}" ] && main "$@"
+if [ "${PREREQS}" = 'prereqs' ]; then
+    main "$@"
+fi
