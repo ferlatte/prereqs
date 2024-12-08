@@ -122,7 +122,7 @@ prereqs_update() {
     pushd "$d" > /dev/null
     local prereqs_tmp="${PREREQS}.tmp"
     if curl -s -q -o "$prereqs_tmp" \
-            "https://raw.githubusercontent.com/trussworks/prereqs/${tag}/prereqs"
+            "https://raw.githubusercontent.com/ferlatte/prereqs/${tag}/prereqs"
     then
         echo "Got it"
         install -C "${prereqs_tmp}" "${PREREQS}"
