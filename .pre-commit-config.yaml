@@ -1,23 +1,18 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+  - repo: meta
     hooks:
-      - id: check-added-large-files
-      - id: check-ast
-      - id: check-case-conflict
+      - id: check-hooks-apply
+      - id: check-useless-excludes
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
       - id: check-executables-have-shebangs
-      - id: check-shebang-scripts-are-executable
       - id: check-merge-conflict
-      - id: check-vcs-permalinks
-      - id: check-yaml
-      - id: detect-private-key
-      - id: end-of-file-fixer
-      - id: fix-byte-order-marker
-      - id: forbid-submodules
-      - id: mixed-line-ending
-      - id: trailing-whitespace
+      - id: check-shebang-scripts-are-executable
+      - id: forbid-submodules # Prevent git submodules from ever being used
+      - id: no-commit-to-branch # This defaults to preventing commits directly to main or master branches
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.9.0.2
+    rev: v0.10.0.1
     hooks:
       - id: shellcheck
         exclude: 'lib'

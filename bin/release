@@ -9,9 +9,9 @@ main() {
     fi
     git tag -a -f -m "Release ${version}" "${version}"
     git tag -a -f -m "Release ${version}" latest "${version}"
-    git push upstream "${version}"
+    git push origin "${version}"
     # Need to force push in order to update the existing tag.
-    git push -f upstream latest
+    git push -f origin latest
 }
 
 [ -z "${SHUNIT_VERSION}" ] && main "$@"

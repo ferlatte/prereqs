@@ -1,0 +1,8 @@
+#! /bin/sh
+
+# Assumes that shunit2 is checked out next to the prereqs directory, and that this is run from the root of
+# prereqs.
+
+cp ../shunit2/shunit2 lib
+cp ../shunit2/lib/versions lib
+cp ../shunit2/test_runner tests

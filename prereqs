@@ -180,4 +180,7 @@ main() {
 }
 
 # Execute main() if this is run in standalone mode (vs. from a unit test)
-[ -z "${SHUNIT_VERSION}" ] && main "$@"
+ARGV0=$(basename "$0")
+if [ "${ARGV0}" = 'prereqs' ]; then
+    main "$@"
+fi
