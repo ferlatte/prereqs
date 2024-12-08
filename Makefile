@@ -27,4 +27,4 @@ pre-commit: .git/hooks/pre-commit
 # we checked.
 .prereqs.make-step: README.md bin/prereqs
 	bin/prereqs -r README.md
-	touch .$@
+	touch $@
