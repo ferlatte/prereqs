@@ -4,8 +4,7 @@ A tool to check your project prerequisites so your engineers don't have to.
 
 ## Build Status
 
-[![CircleCI](https://circleci.com/gh/trussworks/prereqs.svg?style=shield)](https://circleci.com/gh/trussworks/prereqs)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/trussworks/prereqs/main.svg)](https://results.pre-commit.ci/latest/github/trussworks/prereqs/main)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ferlatte/prereqs/main.svg)](https://results.pre-commit.ci/latest/github/ferlatte/prereqs/main)
 
 ## Why
 
@@ -19,7 +18,7 @@ Note that `prereqs` explicitly does not attempt to modify the project environmen
 
 ``` shell
 cd project
-curl -O https://raw.githubusercontent.com/trussworks/prereqs/latest/prereqs
+curl -O https://raw.githubusercontent.com/ferlatte/prereqs/latest/prereqs
 # edit prereqs.conf, add your prerequisites. See prereqs.conf section.
 ./prereqs -c ./prereqs.conf # Put this early in your build.
 ```
@@ -33,8 +32,6 @@ You can also put your prereqs into your README.md, as shown below, and use `./pr
 ## Prerequisites
 
 - pre-commit
-- shfmt
-- shellcheck
 
 ## prereqs.conf
 
