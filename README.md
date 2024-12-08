@@ -42,6 +42,11 @@ An example prereqs.conf for a small project:
 
 `prereqs` only tests for a tools existence in the PATH (or as a shell function); it doesn't try to check versions. If you want that you should consider installing your tool as part of your project.
 
+## Updating dependencies
+
+1. `pre-commit --autoupdate`
+1. Check for a new release of [shunit2](<https://github.com/kward/shunit2>), check out the new tag into `~/src` next to `prereqs` and then run `bin/update-shunit2`
+
 ## Thanks
 
 [Kate Ward](mailto:kate.ward@forestent.com) for [shunit2](<https://github.com/kward/shunit2>)
