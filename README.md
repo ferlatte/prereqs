@@ -5,7 +5,7 @@ A tool to check your project prerequisites so your engineers don't have to.
 ## Build Status
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ferlatte/prereqs/main.svg)](https://results.pre-commit.ci/latest/github/ferlatte/prereqs/main)
-
+![Github Actions](https://github.com/ferlatte/prereqs/actions/workflows/tests.yml/badge.svg)
 ## Why
 
 While it's best practice to have project dependencies contained within the project (via `bundler`, `npm`, or similar tools), it is very common to have bootstrap prerequisites that need to be installed on the system outside of the project's normal build process. For example, you need to have npm installed before you can use it.
