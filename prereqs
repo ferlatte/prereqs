@@ -126,6 +126,7 @@ prereqs_update() {
     then
         echo "Got it"
         install -C "${prereqs_tmp}" "${PREREQS}"
+        rm "${prereqs_tmp}"
     else
         echo "Failed"
         return 1
@@ -180,7 +181,6 @@ main() {
 }
 
 # Execute main() if this is run in standalone mode (vs. from a unit test)
-ARGV0=$(basename "$0")
-if [ "${ARGV0}" = 'prereqs' ]; then
+if [ "${PREREQS}" = 'prereqs' ]; then
     main "$@"
 fi
