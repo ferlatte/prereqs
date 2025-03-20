@@ -149,6 +149,13 @@ main() {
     # Enable the safeties
     set -eu -o pipefail
     local update_tag="latest"
+    if [[ ${CI:-false} == "true" ]]; then
+        # prereqs doesn't really apply in a CI environment since those are
+        # centrally managed, and sometimes you need prereqs on engineer
+        # workstations that aren't appropriate in the CI environment.
+        echo "OK: detected CI environment, assuming prereqs are installed."
+        exit 0
+    fi
     while getopts 'c:hr:t:u' opt; do
         case ${opt} in
             c)
