@@ -13,3 +13,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Run tests
       run: make test
+      env:
+      # prereqs checks for CI and bails, so turn that off for tests.
+        CI: false
